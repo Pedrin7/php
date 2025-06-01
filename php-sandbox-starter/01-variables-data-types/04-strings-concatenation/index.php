@@ -1,3 +1,11 @@
+<?php
+$firstName = 'Pedro';
+$secondName = 'Paim';
+
+$fullName = $firstName . ' ' . $secondName;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +25,9 @@
   <div class="container mx-auto p-4 mt-4">
     <div class="bg-white rounded-lg shadow-md p-6">
       <!-- Output -->
+      <?= 'Olá, meu nome completo é: ' . $fullName . '<br />'?>
+      <?= "Olá, meu nome completo é: $fullName" . '<br />'?>
+      <?= 'Olá, meu nome é \'Pedro\''?>
 
     </div>
   </div>
