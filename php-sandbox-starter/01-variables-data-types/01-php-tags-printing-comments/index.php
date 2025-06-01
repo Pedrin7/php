@@ -1,3 +1,14 @@
+<?php
+    echo 'primeiro código em PHP!';
+    echo '<br />';
+    print 'hello da tag print';
+    echo '<br />';
+    // comentário em linha com PHP
+    /*
+    comentario em bloco com PHP
+    */
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +16,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Learn PHP From Scratch</title>
+    <title><?= 'Learn PHP From Scratch' ?></title>
+    <!-- a maneira escrita acima pode substituir a maneira como foi escrita no inicio do documento -->
+    
 </head>
 
 <body class="bg-gray-100">
