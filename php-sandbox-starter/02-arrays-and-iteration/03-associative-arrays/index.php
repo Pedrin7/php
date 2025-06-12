@@ -1,5 +1,20 @@
 <?php
 $output = null;
+
+$user = [
+    'name' => 'Pedro',
+    'email' => 'teste@teste.com',
+    'senha' => 123456,
+    'hobbies' => ['video-game', 'carro', 'volei']
+];
+
+$output = $user['hobbies'][2];
+
+$user['addres'] = 'rua teste';
+// a linha acima acessa o array dentro do array, pegando o elemento de indice 2
+
+unset($user['addres']);
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +37,12 @@ $output = null;
         <div class="bg-white rounded-lg shadow-md p-6 mt-6">
             <!-- Output -->
             <p class="text-xl"><?= $output ?></p>
+            <h2>User array:</h2>
+            <p>
+                <pre>
+                    <?php print_r($user); ?>
+                </pre>
+            </p>
         </div>
     </div>
 </body>
