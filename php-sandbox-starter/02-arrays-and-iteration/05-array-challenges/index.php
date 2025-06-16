@@ -13,8 +13,10 @@ echo '<h3>Sum Of An Array</h3>';
 $numbers = [1, 3, 5, 7, 9, 11, 13];
 
 $amount = count($numbers);
+$sum = array_sum($numbers);
 
-$sum = $numbers[0] + $numbers[1] + $numbers[2] + $numbers[3] + $numbers[4] + $numbers[5] + $numbers[6];
+// somando os bens 1 a 1 de força chucra kk
+// $sum = $numbers[0] + $numbers[1] + $numbers[2] + $numbers[3] + $numbers[4] + $numbers[5] + $numbers[6];
 
 echo('The sum of the '. $amount . ' numbers is: ' . $sum);
 
@@ -35,8 +37,11 @@ $colors = ['red', 'blue', 'green', 'yellow'];
 
 $colors_reversed = array_reverse($colors);
 
-array_push($colors_reversed, 'purple');
-array_push($colors_reversed, 'orange');
+// array_push($colors_reversed, 'purple');
+// array_push($colors_reversed, 'orange');
+
+// using array_merge = retorna um novo array com os novos valores
+$colors_reversed = array_merge($colors_reversed, ['purple', 'orange']) ;
 
 array_splice($colors_reversed, 1, 1, 'pink');
 array_pop($colors_reversed);
