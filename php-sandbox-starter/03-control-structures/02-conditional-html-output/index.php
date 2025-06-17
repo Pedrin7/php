@@ -1,3 +1,10 @@
+<?php
+
+$is_logged_in = false;
+$name = null;
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,10 +22,28 @@
     </div>
   </header>
   <div class="container mx-auto p-4 mt-4">
+
     <div class="bg-white rounded-lg shadow-md p-6 mt-6">
       <!-- Output -->
-      <h1 class="text-3xl">Welcome</h1>
+      <?php if ($is_logged_in): ?>
+        <?php if (isset($name)) : ?>
+        <h1 class="text-3xl">Welcome <?= $name ?></h1>
+        <?php else: ?>
+          <h1 class="text-3xl">Welcome to the app</h1>
+        <?php endif; ?>
+      <?php else : ?>
+      <h1 class="text-3xl">You need to log in to enter the app.</h1>
+      <?php endif; ?>
+
+      <?php if($is_logged_in && $name) : ?>
+        <h1 class="text-3xl">Welcome <?= $name ?></h1>
+      <?php elseif($is_logged_in) : ?>
+          <h1 class="text-3xl">Welcome to the app</h1>
+      <?php else:  ?>
+        <h1 class="text-3xl">Please log in</h1>
+      <?php endif; ?>
     </div>
+
   </div>
 </body>
 
