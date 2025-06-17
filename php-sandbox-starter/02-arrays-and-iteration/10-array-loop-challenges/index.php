@@ -37,25 +37,60 @@ for($i = 1; $i <= 10; $i++){
 echo '<h3>Array Sum</h3>';
 
 $numbers = [1, 2, 3, 4, 5];
-$sum = 0;
+$sum_foreach = 0;
+$sum_for = 0;
 
 foreach($numbers as $number){
-  for($i = 0; $i <= count($numbers); $i++){
-    $sum = $numbers[$i] + $sum;
-  }
-  echo $sum;
+    $sum_foreach += $number;
+}
+
+for($i = 0; $i < count($numbers); $i++){
+  $sum_for += $numbers[$i];
 }
 
 
+echo('Soma dos números do array com foreach: ' . $sum_foreach) . '<br>';
+echo('Soma dos números do array com for: ' . $sum_for);
 
 /*
   Challenge 3: Calculate the average students grade from an array of students. Each student has their own array with the key 'grades'. 
 
-  	1. Create an array of students with their names and grades (0 - 100)
+  1. Create an array of students with their names and grades (0 - 100)
 	2. Iterate over the students array with a foreach loop
 	3. Calculate the average grade for each student
 */
 
 echo '<h3>Average Grade</h3>';
 
+$students = [
+  [
+    'id' => 0,
+    'name' => 'Pedro',
+    'grade' => [80 , 25 , 70]
+  ],
+  [
+    'id' => 1,
+    'name' => 'Maya',
+    'grade' => [80 , 70 , 35]
+  ],
+  [
+    'id' => 2,
+    'name' => 'Mari',
+    'grade' => [80 , 100 , 70]
+  ],
+  [
+    'id' => 3,
+    'name' => 'Rossano',
+    'grade' => [90 , 100 , 80]
+  ]
+
+];
+
+foreach($students as $student){
+  $name = $student['name'];
+  $grades = $student['grade'];
+  $average = array_sum($grades) / count($grades);
+
+  echo "Nome: $name<br>" . "Notas: ". implode(", ", $grades) . "<br>Média: " . number_format($average, 1) . "<br><br>";   
+}
 
