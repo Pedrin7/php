@@ -1,3 +1,47 @@
+<?php
+
+  $day = date('l');
+
+  switch($day) {
+    case 'Monday':
+      $message = 'Monday blues';
+      $color = 'blue';
+      break;
+  
+  case 'Tuesday':
+      $message = 'Tuesday';
+      $color = 'red';
+      break;
+  
+  case 'Wednesday':
+      $message = 'Wednesday';
+      $color = 'green';
+      break;
+  
+  case 'Thursday':
+      $message = 'Thursday';
+      $color = 'pink';
+      break;
+  
+  case 'Friday':
+      $message = 'Friday';
+      $color = 'orange';
+      break;
+  
+  case 'Saturday':
+      $message = 'Saturday';
+      $color = 'yellow';
+      break;
+  
+  case 'Sunday':
+      $message = 'Sunday';
+      $color = 'grey';
+      break;
+  }
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,8 +55,8 @@
   <style>
     body {
       font-family: 'Roboto', sans-serif;
-      background-color: blue;
-      color: white;
+      background-color: <?= $color?>;
+      color: black;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,7 +66,7 @@
 </head>
 
 <body>
-  <h1>Monday blues!</h1>
+  <h1><?= $day ?></h1>
 </body>
 
 </html>
