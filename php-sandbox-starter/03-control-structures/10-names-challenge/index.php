@@ -10,3 +10,26 @@ Names Challenge:
 */
 
 $names = ['Alex', 'Beth', 'Caroline', 'Dave', 'Elanor', 'Anna', 'Freddie', 'Adam'];
+
+foreach($names as $name){
+    if($name[0] === 'A'){
+        continue;
+    }
+    echo strtolower(strrev($name)) . '<br>';
+}
+
+
+//solução com o for
+
+// for($i = 0; $i < count($names); $i++){
+//     $name = $names[$i];
+
+//     if(substr($name, 0, 1) === 'A'){
+//         continue;
+//     }
+
+//     $reversedName = strtolower(strrev($name));
+    
+//     echo $reversedName . '<br>';
+
+// }
