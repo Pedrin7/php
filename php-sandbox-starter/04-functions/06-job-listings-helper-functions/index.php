@@ -41,8 +41,19 @@ $listings = [
     'tags' => []
   ],
 ];
-?>
 
+function formatSalary($listings, $job){
+  if($job['salary'] !== null){
+    if($job['salary'] > 999){ 
+      return 'Salary: R$' . number_format($job['salary'], 0 ,',', '.');
+    }
+  }
+}
+
+function highlightTags(){
+  // terminar
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +80,7 @@ $listings = [
             <p class="text-gray-700 text-lg mt-2"><?= $job['description'] ?></p>
             <ul class="mt-4">
               <li class="mb-2">
-                <strong>Salary:</strong> <?= $job['salary'] ?>
+                <strong>Salary:</strong> <?= formatSalary($listings, $job); ?>
               </li>
               <li class="mb-2">
                 <strong>Location:</strong> <?= $job['location'] ?>
