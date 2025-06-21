@@ -42,7 +42,7 @@ $listings = [
   ],
 ];
 
-function formatSalary($listings, $job){
+function formatSalary($listings,$job){
   if($job['salary'] !== null){
     if($job['salary'] > 999){ 
       return 'Salary: R$' . number_format($job['salary'], 0 ,',', '.');
@@ -50,9 +50,17 @@ function formatSalary($listings, $job){
   }
 }
 
-function highlightTags(){
-  // terminar
+function highlightTags($index){
+    return $index % 2 === 0 ? 'bg-red-100' : 'bg-white';
 }
+
+// correção do professor abaixo:
+// function highlightTags($tags, $searchTerm){
+//   $tagsStr = implode(', ', $tags);
+//   return str_replace($searchTerm, "<span class='bg-yellow-200'> {$searchTerm}</span>", $tagsStr);
+// }
+
+
 ?>
 
 <!DOCTYPE html>
@@ -88,8 +96,8 @@ function highlightTags(){
                 <span class="text-xs text-white <?= $job['location'] === 'New York' ? 'bg-blue-500' : 'bg-green-500'; ?> rounded-full px-2 py-1 ml-2"><?= $job['location'] === 'New York' ? 'Local' : 'Remote'; ?></span>
               </li>
               <?php if (!empty($job['tags'])) : ?>
-                <li class="mb-2">
-                  <strong>Tags:</strong> <?= implode(', ', $job['tags']) ?>
+                <li class="mb-2 <?= highlightTags($index) ?>">
+                  <strong>Tags:</strong> <?= implode(', ', $job['tags']); ?>
                 </li>
               <?php endif; ?>
             </ul>
