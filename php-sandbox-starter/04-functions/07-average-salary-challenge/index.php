@@ -44,7 +44,7 @@ $listings = [
 
 function formatSalary($salary)
 {
-  return '$' . number_format($salary);
+  return '$' . number_format($salary, 0, ',', '.');
 }
 
 function highlightTags($tags, $searchTerm)
@@ -53,15 +53,17 @@ function highlightTags($tags, $searchTerm)
   return str_replace($searchTerm, "<span class='bg-yellow-200'>$searchTerm</span>", $tagsArray);
 }
 
-function calculateAverageSalary($joblistings) {
+function calculateAverageSalary($listings) {
   $cont = 0;
   $sumSalaries = 0;
 
-  foreach($joblistings as $job){
+  foreach($listings as $job){
     $sumSalaries += $job['salary'];
     $cont ++;
   }
-  // return formatSalary($sumSalaries);
+
+  $averageSalaries = $sumSalaries / $cont;
+  return formatSalary($averageSalaries);
 }
 ?>
 
@@ -84,7 +86,7 @@ function calculateAverageSalary($joblistings) {
   </header>
   <div class="container mx-auto p-4 mt-4">
     <div class="bg-green-100 rounded-lg shadow-md p-6 my-6">
-      <h2 class="text-2xl font-semibold mb-4">Average Salary: <?= calculateAverageSalary()?> </h2>
+      <h2 class="text-2xl font-semibold mb-4">Average Salary: <?= calculateAverageSalary($listings)?> </h2>
     </div>
     <!-- Output -->
     <?php foreach ($listings as $index => $job) : ?>
