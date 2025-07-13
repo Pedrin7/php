@@ -1,12 +1,46 @@
 <?php
 $title = '';
 $description = '';
-$submitted = false; 
+$submitted = false;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
   $title = htmlspecialchars($_POST['title'] ?? '');
   $description = htmlspecialchars($_POST['description'] ?? '');
 
+  // echo '<pre>';
+  // var_dump($_FILES);
+  // echo '</pre>';
+
+  $files = $_FILES['logo'];
+
+  if ($files['error'] === UPLOAD_ERR_OK) {
+    // Specify where to upload
+    $uploadDir = 'uploads/';
+
+    // cria e checa pra ver se o repositório existe
+    if (!is_dir($uploadDir)) {
+      mkdir($uploadDir, 0777, true);
+    }
+
+    // cria o nome do arquivo
+    $fileName = uniqid() . '-' . $files['name'];
+
+    // checando o tipo de arquivo
+    $allowExtensions = ['jpg', 'jpeg', 'png'];
+    $fileExtension = strtolower(pathinfo($fileName, PATHINFO_EXTENSION));
+
+    // checando a extensão do arquivo
+    if (in_array($fileExtension, $allowExtensions)) {
+      // enviando um arquivo
+      if (move_uploaded_file($files['tmp_name'], $uploadDir . $fileName)) {
+        echo 'File uploaded';
+      } else {
+        echo 'File uploaded error: ' . $files['error'];
+      }
+    }else{
+      echo 'Invalid file type';
+    }
+  }
   $submitted = true;
 }
 ?>
