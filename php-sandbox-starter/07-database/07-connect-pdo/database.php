@@ -2,7 +2,7 @@
 
 // database creds
 $host = 'localhost';
-$port = '3307';
+$port = 3307;
 $dbname = 'blog';
 $username = 'root';
 $password = 'root';
