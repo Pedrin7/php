@@ -2,10 +2,10 @@
 
 // Database configuration
 $host = 'localhost';
-$port = 3306;
+$port = 3307;
 $dbName = 'blog';
 $username = 'root';
-$password = '';
+$password = 'root';
 
 // Connection string (DSN)
 $dsn = "mysql:host={$host};port={$port};dbname={$dbName};charset=utf8";
