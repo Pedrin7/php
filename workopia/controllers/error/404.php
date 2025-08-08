@@ -1,3 +1,5 @@
 <?php
 
-echo 'Error 404';
+require '../../helpers.php';
+
+loadView('error/404');

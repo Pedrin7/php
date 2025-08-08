@@ -1,3 +1,5 @@
 <?php
 
-echo 'Create listings';
+require '../../helpers.php';
+
+loadView('listings/create');

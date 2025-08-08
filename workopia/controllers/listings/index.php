@@ -1,3 +1,5 @@
 <?php
 
-echo 'Listings';
+require '../../helpers.php';
+
+loadView('listings/index');
