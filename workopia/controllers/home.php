@@ -1,5 +1,10 @@
 <?php
 
-require '../helpers.php';
+$config = require basePath('config/config.php');
+$db = new Database($config);
 
-loadView('home');
+$listings = $db->query('SELECT * FROM listings LIMIT 9')->fetchAll;
+
+loadView('home', [
+    'listings' => $listings
+]);

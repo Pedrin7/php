@@ -1,4 +1,4 @@
-<?php  require '../../helpers.php'; ?>
+<?php  require '../helpers.php'; ?>
 
 <?= loadPartial('head') ?>
 <?= loadPartial('header.navbar') ?>
